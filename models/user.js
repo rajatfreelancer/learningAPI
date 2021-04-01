@@ -1,6 +1,12 @@
 var mongoose=require('mongoose');
 
 const userSchema=mongoose.Schema({
+    username:{
+        type: String,
+        trim: true,
+        required: true,
+        maxlength: 100
+    },
     firstname:{
         type: String,
         required: true,
@@ -22,13 +28,10 @@ const userSchema=mongoose.Schema({
         required: true,
         minlength:8
     },
-    password2:{
-        type:String,
-        required: true,
-        minlength:8
-
+    deviceToken:{
+        type: String
     },
-    token:{
+    deviceType:{
         type: String
     }
 });

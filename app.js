@@ -5,8 +5,8 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-
+var apiRouter = require('./routes/api');
+var mongoose = require('mongoose');
 var app = express();
 
 
@@ -23,10 +23,9 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/api/', apiRouter);
 
 
-var mongoose = require('mongoose');
 
 //Set up default mongoose connection
 var mongoDB = 'mongodb://127.0.0.1/product';
